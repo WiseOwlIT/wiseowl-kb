@@ -12,6 +12,14 @@ npm start        # live preview at http://localhost:3000
 npm run build    # production build into /build (fails on broken internal links)
 ```
 
+## M365 Domain and Tenant Lookup tool
+
+The tool lives at `/tools/m365-lookup`. The page is `src/pages/tools/m365-lookup.js` and its backend is a Cloudflare Pages Function in `functions/api/m365-lookup.js` (Cloudflare deploys the `functions` folder automatically, no extra setup).
+
+- It uses only public DNS (Cloudflare DNS-over-HTTPS) and public Microsoft endpoints, stores nothing, and caches each result for 15 minutes.
+- `npm start` shows the page but the lookup itself needs the Function. To test it locally run `npm run pages:dev` and open the address it prints (usually http://localhost:8788).
+- Recommended after launch: in Cloudflare add a free **Rate limiting rule** for the path `/api/m365-lookup` (for example 20 requests per minute per IP) so nobody can abuse it.
+
 ## Write a new article
 
 1. Copy `templates/article-template.md` into `docs/microsoft/`, `docs/vmware/` or `docs/networking/`.

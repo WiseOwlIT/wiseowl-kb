@@ -81,6 +81,7 @@ const config = {
         },
         items: [
           {type: 'docSidebar', sidebarId: 'kbSidebar', position: 'left', label: 'Knowledge Base'},
+          {to: '/tools/m365-lookup', label: 'M365 Lookup', position: 'left'},
           {to: '/blog', label: 'Blog', position: 'left'},
           {to: '/kb/about', label: 'About', position: 'left'},
         ],
@@ -95,6 +96,10 @@ const config = {
               {label: 'VMware', to: '/kb/category/vmware'},
               {label: 'Networking', to: '/kb/category/networking'},
             ],
+          },
+          {
+            title: 'Tools',
+            items: [{label: 'M365 Domain and Tenant Lookup', to: '/tools/m365-lookup'}],
           },
           {
             title: 'More',

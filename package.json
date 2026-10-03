@@ -9,7 +9,8 @@
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "clear": "docusaurus clear",
-    "serve": "docusaurus serve"
+    "serve": "docusaurus serve",
+    "pages:dev": "docusaurus build && npx wrangler pages dev build"
   },
   "dependencies": {
     "@docusaurus/core": "^3.9.2",
