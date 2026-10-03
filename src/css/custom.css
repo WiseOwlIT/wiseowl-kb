@@ -47,11 +47,25 @@
 
 /* Navbar: frosted glass with neon underline */
 .navbar {
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  /* Do NOT put backdrop-filter on .navbar itself: it makes the fixed-position
+     mobile menu collapse to the navbar's height. The blur lives on ::before. */
   border-bottom: 1px solid transparent;
   border-image: linear-gradient(90deg, transparent, var(--wo-cyan), var(--wo-violet), transparent) 1;
   box-shadow: none;
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  pointer-events: none;
+}
+
+.navbar-sidebar {
+  background-color: var(--ifm-background-surface-color);
 }
 
 .navbar__title {
