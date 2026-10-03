@@ -1,5 +1,6 @@
 ---
 id: check-ad-replication-repadmin
+slug: /microsoft/check-ad-replication-repadmin
 title: Check Active Directory replication health with repadmin
 sidebar_label: Check AD replication health
 description: Use repadmin and dcdiag to check Active Directory replication between domain controllers.

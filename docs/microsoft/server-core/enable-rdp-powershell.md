@@ -1,5 +1,6 @@
 ---
 id: enable-rdp-powershell
+slug: /microsoft/enable-rdp-powershell
 title: Enable Remote Desktop on Windows with PowerShell
 sidebar_label: Enable RDP with PowerShell
 description: Turn on Remote Desktop and open the firewall rule on Windows using PowerShell.

@@ -1,5 +1,6 @@
 ---
 id: repadmin-access-denied
+slug: /microsoft/repadmin-access-denied
 title: Fix repadmin "Access is denied" (error 5)
 sidebar_label: repadmin Access is denied
 description: Troubleshoot repadmin and Active Directory Sites and Services errors that return Access is denied (error 5).
