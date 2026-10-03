@@ -1,0 +1,156 @@
+/* WiseOwl theme: dark-first, futuristic. Cyan + violet neon on deep space. */
+:root {
+  --ifm-color-primary: #0891b2;
+  --ifm-color-primary-dark: #0884a2;
+  --ifm-color-primary-darker: #087d9a;
+  --ifm-color-primary-darkest: #06677f;
+  --ifm-color-primary-light: #0a9fc3;
+  --ifm-color-primary-lighter: #0ba6cc;
+  --ifm-color-primary-lightest: #12bfe9;
+  --ifm-font-family-base: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --ifm-heading-font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --ifm-heading-font-weight: 700;
+  --ifm-code-font-size: 92%;
+  --ifm-global-radius: 12px;
+  --wo-cyan: #22d3ee;
+  --wo-violet: #8b5cf6;
+  --wo-magenta: #e879f9;
+  --wo-bg: #f5f7fb;
+  --wo-glow: rgba(34, 211, 238, 0.35);
+  --wo-hero-from: #0b1026;
+  --wo-hero-to: #1b1148;
+  --wo-grid: rgba(34, 211, 238, 0.08);
+  --wo-card-bg: rgba(255, 255, 255, 0.85);
+  --wo-card-border: rgba(8, 145, 178, 0.25);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #22d3ee;
+  --ifm-color-primary-dark: #0fc7e3;
+  --ifm-color-primary-darker: #0dbcd7;
+  --ifm-color-primary-darkest: #0a97ae;
+  --ifm-color-primary-light: #3ad9f1;
+  --ifm-color-primary-lighter: #4fdcf2;
+  --ifm-color-primary-lightest: #7de8f7;
+  --ifm-background-color: #070b1a;
+  --ifm-background-surface-color: #0d1330;
+  --ifm-navbar-background-color: rgba(7, 11, 26, 0.75);
+  --ifm-footer-background-color: #050813;
+  --ifm-toc-border-color: rgba(34, 211, 238, 0.15);
+  --ifm-color-emphasis-200: rgba(139, 92, 246, 0.25);
+  --wo-card-bg: rgba(16, 22, 56, 0.6);
+  --wo-card-border: rgba(34, 211, 238, 0.22);
+  --docusaurus-highlighted-code-line-bg: rgba(34, 211, 238, 0.12);
+}
+
+/* Navbar: frosted glass with neon underline */
+.navbar {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(90deg, transparent, var(--wo-cyan), var(--wo-violet), transparent) 1;
+  box-shadow: none;
+}
+
+.navbar__title {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+}
+
+.navbar__logo img {
+  filter: drop-shadow(0 0 6px var(--wo-glow));
+}
+
+.navbar__link--active,
+.navbar__link:hover {
+  text-shadow: 0 0 12px var(--wo-glow);
+}
+
+/* Headings and links */
+article h1,
+.markdown > h1 {
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--ifm-heading-color), var(--wo-cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme='light'] article h1,
+[data-theme='light'] .markdown > h1 {
+  background: linear-gradient(90deg, #0f172a, #0891b2);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.markdown > h2 {
+  margin-top: 2.25rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+
+/* Sidebar */
+.menu__link--active:not(.menu__link--sublist) {
+  border-left: 3px solid var(--wo-cyan);
+  background: linear-gradient(90deg, rgba(34, 211, 238, 0.12), transparent);
+}
+
+/* Code blocks glow */
+pre,
+div[class*='codeBlockContainer'] {
+  border-radius: var(--ifm-global-radius);
+  box-shadow: 0 0 0 1px var(--wo-card-border), 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+code {
+  border-color: var(--wo-card-border);
+}
+
+/* Admonitions */
+.theme-admonition {
+  border-radius: var(--ifm-global-radius);
+  border-left-width: 4px;
+  backdrop-filter: blur(6px);
+}
+
+/* Buttons */
+.button--primary {
+  background: linear-gradient(90deg, var(--wo-cyan), var(--wo-violet));
+  border: none;
+  color: #050813;
+  font-weight: 700;
+}
+
+.button--primary:hover {
+  color: #050813;
+  box-shadow: 0 0 22px var(--wo-glow);
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--wo-card-border);
+}
+
+/* Subtle scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--wo-cyan), var(--wo-violet));
+  border-radius: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,8 @@
+node_modules
+.docusaurus
+build
+.cache-loader
+.DS_Store
+.env
+.env.local
+npm-debug.log*
