@@ -9,11 +9,13 @@ tags: [microsoft-365, users, licences]
 
 # How to create a user in Microsoft 365
 
-A new employee needs a Microsoft 365 account to access your organisation's services. Their assigned licence determines which apps and services they can use.
+Got someone new joining the team? Let's get their Microsoft 365 account ready so they can sign in and start working. You'll create their account, choose a licence and check that they have access to the apps they need.
 
 ## Before you start
 
-Have the employee's name, intended username and an available Microsoft 365 licence ready. Sign in with an administrator account that has permission to create users and assign licences.
+Grab their name, the username you'd like them to use and an available Microsoft 365 licence. You'll also need an administrator account with permission to create users and assign licences.
+
+If you want their address to use your business domain, [add and verify that domain first](./add-domain-microsoft-365.md).
 
 ## Create the account
 
@@ -26,13 +28,13 @@ Have the employee's name, intended username and an available Microsoft 365 licen
 7. Review the optional settings. Give ordinary employees standard user access; assign an administrator role only when their job requires it.
 8. Review the details and select **Finish adding**.
 
-Share the sign-in details securely with the employee.
+Once the account is ready, share the sign-in details securely with your new team member. Let them know they'll need to choose their own password when they first sign in.
 
 ## Check the account
 
-Ask the employee to sign in and complete any security registration prompts. Confirm they can access the services included in their licence.
+Before calling the job done, ask them to sign in and follow any security registration prompts. Check that they can open the services included in their licence.
 
-If an app is unavailable, check **Users → Active users → select the user → Licences and apps**. Confirm the correct licence and required service are enabled.
+Missing an app? Head back to **Users → Active users → select the user → Licences and apps**. Check that the right licence is assigned and the required service is switched on. A new account's services may take a little time to become available.
 
 ## Reference
 

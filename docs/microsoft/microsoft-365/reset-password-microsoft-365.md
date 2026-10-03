@@ -9,11 +9,11 @@ tags: [microsoft-365, users, passwords]
 
 # How to reset a Microsoft 365 user's password
 
-An administrator can reset a forgotten password so an employee can regain access to their account. Verify the employee's identity before making the change.
+Forgotten passwords happen. If someone on your team can't get into their Microsoft 365 account, you can help them get back to work with a password reset. First, confirm you're speaking to the account's owner using your usual identity checks.
 
 ## Before you start
 
-Sign in with an administrator account permitted to reset the affected user's password. The Password Administrator role can reset passwords for ordinary users, but administrator accounts may require a different role.
+You'll need an administrator account allowed to reset that person's password. A Password Administrator can help ordinary users; resetting another administrator's password may need a different role.
 
 ## Reset the password
 
@@ -25,15 +25,15 @@ Sign in with an administrator account permitted to reset the affected user's pas
 6. Select **Reset password**.
 7. Share the temporary password through an approved, secure method.
 
-Ask the employee to sign in with the new password and choose their own password when prompted.
+Ask them to try signing in while you're still available to help. They should use the temporary password, then choose their own password when prompted.
 
 ## If they still cannot sign in
 
-Confirm the employee is using the correct work account and entering the new password rather than a saved one.
+Still stuck? Start with the simple checks: are they using the right work account, and is their browser filling in the old password? Ask them to enter the new password themselves.
 
-A password reset does not reset Microsoft Authenticator or other multifactor authentication methods. If the employee has lost their phone or cannot complete verification, their authentication methods need separate attention.
+If the password works but they're stopped at a verification prompt, the issue may be their authentication method. Changing a password doesn't reset Microsoft Authenticator. A lost phone or unavailable verification method needs separate attention.
 
-Accounts synchronised from a local Active Directory may require the password to be reset in that directory, depending on your password writeback configuration.
+If your accounts are synchronised from a local Active Directory, check how your organisation handles password changes. You may need to reset the password there, depending on your password writeback setup.
 
 ## Reference
 

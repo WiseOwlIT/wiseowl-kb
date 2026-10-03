@@ -9,13 +9,13 @@ tags: [microsoft-365, domains, dns, email]
 
 # How to add your business domain to Microsoft 365
 
-Adding your domain lets your business use addresses such as `alex@example.com`. Domain verification proves ownership; connecting email requires additional DNS records.
+Want your team's email addresses to use your business name? Adding your domain is the first step. We'll verify that you own it, then connect the DNS records Microsoft 365 needs for email.
 
 ## Before you start
 
-You need administrator access to Microsoft 365 and access to the provider managing your domain's DNS.
+Have your Microsoft 365 administrator account and your DNS provider's login handy. Your DNS provider is the service managing your domain's records, which may be different from the company where you bought the domain.
 
-If another provider currently handles your email, plan the change first. Create the required Microsoft 365 mailboxes before switching mail delivery. Moving existing messages is a separate migration task.
+Already receiving email somewhere else? Take a moment to plan the move. Create everyone's Microsoft 365 mailboxes before switching mail delivery, and arrange a separate migration if you need to bring their existing messages across.
 
 ## Add and verify the domain
 
@@ -27,11 +27,11 @@ If another provider currently handles your email, plan the change first. Create 
 6. Open your DNS provider's dashboard and add that TXT record exactly as shown.
 7. Return to Microsoft 365 and select **Verify**.
 
-If verification fails, check the record's name and value. DNS changes may take time to become visible.
+If Microsoft can't find the record yet, check the name and value for a copying error. If they look right, give DNS a little time to update and try verification again. Adding this verification TXT record doesn't switch your email delivery.
 
 ## Connect Microsoft 365 email
 
-Continue through the setup wizard and add the records it requests. Use the exact values shown for your domain.
+Once your domain is verified, continue through the wizard. Microsoft will show you the records to add. Copy the values from your own setup screen rather than using example values from another guide.
 
 Common records include:
 
@@ -47,9 +47,9 @@ Changing the MX record sends new incoming mail to Microsoft 365. Make this chang
 
 ## Check the setup
 
-Run Microsoft's DNS checks, then test sending and receiving email with an external address.
+You're nearly there. Run Microsoft's DNS checks, then send a message to an external email address and ask for a reply. That gives you a quick check of mail going in both directions.
 
-If Cloudflare manages your DNS, enter the records there. Keep email-related CNAME records set to **DNS only**. Leave your website records in place unless you are also changing website hosting.
+Using Cloudflare? Add the records in its DNS dashboard and keep email-related CNAME records set to **DNS only**. You can keep your existing website records in place while setting up Microsoft 365 email.
 
 ## References
 
