@@ -15,4 +15,11 @@ Share clear, tested, practical guidance so other IT professionals can fix issues
 
 ## Get in touch
 
-Add your preferred contact details here (email address, LinkedIn, Microsoft Q&A profile, GitHub).
+Email: [Warwick@wiseowltechnologies.com](mailto:Warwick@wiseowltechnologies.com)
+
+## Certified
+
+- Microsoft® Certified Solutions Expert: Cloud Platform and Infrastructure
+- Microsoft Certified: Cybersecurity Architect Expert
+- Microsoft® Certified Solutions Expert: Messaging
+- MCSE: Productivity Solutions Expert
