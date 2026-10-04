@@ -2,50 +2,31 @@
 id: scripts
 title: Scripts
 sidebar_label: Scripts
-description: Practical IT scripts with readable code, copy buttons, downloads and clear instructions. Start with a Windows Update reset batch script.
+description: Practical IT scripts that save time on repeat tasks, with readable code, downloads and clear guidance on how to use them.
 slug: /scripts
 ---
 
-import ScriptViewer from '@site/src/components/ScriptViewer';
+Ever found yourself typing the same commands again and again? Scripts bring those steps together in a reusable file, helping you spend less time on repetitive work and more time solving the problem in front of you.
 
-A handy script can save a lot of typing. Here you can read the code, copy it or download a ready-to-save file, and see what to expect before you run it.
+This library is a home for practical scripts covering Microsoft, VMware and networking. Each script has its own knowledge base article, so you can understand what it does before deciding whether it fits your task.
 
-## Reset Windows Update
+## How scripts can help
 
-Updates stuck or repeatedly failing? This batch script resets several Windows Update components so you can restart your PC and try again. Try the Windows Update troubleshooter first; use this reset when simpler troubleshooting has not helped.
+- **Save time on repeat tasks.** Keep a useful sequence of commands together instead of typing each one from scratch.
+- **Make your process more consistent.** Follow the same steps each time, with fewer opportunities for a missed command or typing mistake.
+- **Learn as you go.** Read the code alongside the explanation to understand how the commands work together.
+- **Keep useful fixes close by.** Return to an article when you need its code, instructions or verification steps.
 
-**Script type:** Windows batch (`.bat`) · **Run as:** Administrator · **Restart required:** Yes
+## What you’ll find in each article
 
-### Before you start
+Each article explains when the script is useful, what it changes and any permissions it needs. You can preview the full code, copy it or download the file, then follow the instructions to run it and check the result.
 
-Save your work and let any active update installation finish. On a work-managed device, check with your IT team before changing update or network settings.
+Take a moment to read the guidance first. Scripts run with your account’s permissions, and some make system changes. For a work-managed device, follow your organisation’s change process and try the script in a suitable test environment where possible.
 
-:::caution What this script changes
-It stops and starts Windows Update, Cryptographic Services, BITS and Windows Installer; renames the update cache folders; resets BITS and Windows Update service permissions; resets Winsock and the WinHTTP proxy; and attempts to re-register DLLs.
+## Available scripts
 
-The permission resets replace custom service permissions. The proxy reset removes the configured WinHTTP proxy, which may be needed on your network. Record any custom settings before running this script. See [Microsoft’s Windows Update reset guidance](https://learn.microsoft.com/en-us/troubleshoot/windows-client/installing-updates-features-roles/additional-resources-for-windows-update).
-:::
+### [Reset Windows Update](/kb/scripts/reset-windows-update)
 
-### Get the script
+A Windows batch script for resetting update components when simpler troubleshooting has not helped. The article covers its service, cache and network changes, how to run it as administrator, and what to check after a restart.
 
-Use **Copy code** to put the whole script on your clipboard, or **Download .bat** to save the file. The preview below shows exactly what is in the download.
-
-<ScriptViewer />
-
-### Run it step by step
-
-1. If you copied the code, open **Notepad** and paste it into a new file.
-2. Choose **File → Save As**, set **Save as type** to **All files**, and name it `reset-windows-update.bat`. Make sure it does not end in `.bat.txt`. If you downloaded the file, you can skip these two steps.
-3. Right-click the saved `.bat` file and choose **Run as administrator**. Approve the Windows permission prompt.
-4. Read the messages in the command window. The script pauses at the end so you can review them before closing it.
-5. Restart your PC, then open **Settings → Windows Update → Check for updates**.
-
-:::note A “Done” message does not confirm every step succeeded
-This is the supplied script, unchanged. It continues after command failures, and DLL registration uses silent mode. Some listed DLLs may be absent on newer Windows versions. If a `.old` folder already exists, its rename can fail; do not assume a second run has reset the cache successfully.
-:::
-
-### Check the result
-
-Try the update that was failing and confirm it installs successfully. If it still fails, note the exact error code and any service or folder errors from the script. Those details are more useful for the next troubleshooting step than repeatedly running the reset.
-
-This script has been reviewed for presentation here; it has not been executed or validated on a Windows test machine.
+[View the script and instructions →](/kb/scripts/reset-windows-update)
