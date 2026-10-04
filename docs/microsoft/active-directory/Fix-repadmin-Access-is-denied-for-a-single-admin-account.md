@@ -1,5 +1,5 @@
 ---
-id: repadmin-access-denied
+id: Fix-repadmin-Access-is-denied-for-a-single-admin-account
 title: Fix repadmin "Access is denied" (error 5) for a single admin account
 sidebar_label: repadmin Access is denied
 description: One admin gets error 5 from repadmin and dcdiag on every writable domain controller while others are fine. Cause and fix, including RPC filters that block a single account.
