@@ -31,6 +31,17 @@ const config = {
     'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;700&display=swap',
   ],
 
+  plugins: [
+    function scriptSourcePlugin() {
+      return {
+        name: 'script-source',
+        configureWebpack() {
+          return {module: {rules: [{test: /\.bat$/i, type: 'asset/source'}]}};
+        },
+      };
+    },
+  ],
+
   presets: [
     [
       'classic',
@@ -90,6 +101,7 @@ const config = {
                  {to: '/tools/email-auth-checker', label: 'SPF, DKIM and DMARC Checker'},
                ],
              },
+          {to: '/kb/scripts', label: 'Scripts', position: 'left'},
           {to: '/blog', label: 'Blog', position: 'left'},
           {to: '/kb/about', label: 'About', position: 'left'},
         ],

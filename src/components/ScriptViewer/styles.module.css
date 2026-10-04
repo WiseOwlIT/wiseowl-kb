@@ -1,0 +1,6 @@
+.viewer { margin: 1.5rem 0; min-width: 0; }
+.toolbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem; border: 1px solid var(--wo-card-border); border-radius: 12px; background: var(--wo-card-bg); }
+.meta { margin-top: .4rem; color: var(--ifm-color-content-secondary); font-size: .85rem; }
+.actions { display: flex; flex-wrap: wrap; gap: .6rem; flex-shrink: 0; }
+.status { margin: .75rem 0; font-size: .9rem; }
+@media (max-width: 700px) { .toolbar { align-items: flex-start; flex-direction: column; } .toolbar strong { overflow-wrap: anywhere; } }

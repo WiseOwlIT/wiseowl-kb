@@ -43,6 +43,7 @@ const sidebars = {
          {type: 'link', label: 'SPF, DKIM and DMARC Checker', href: '/tools/email-auth-checker'},
       ],
     },
+    'scripts/scripts',
     {type: 'link', label: 'Blog', href: '/blog'},
     'about',
   ],
