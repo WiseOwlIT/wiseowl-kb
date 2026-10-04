@@ -119,7 +119,10 @@ const config = {
           },
           {
             title: 'Tools',
-            items: [{label: 'M365 Domain and Tenant Lookup', to: '/tools/m365-lookup'}],
+            items: [
+              {label: 'M365 Domain and Tenant Lookup', to: '/tools/m365-lookup'},
+              {label: 'SPF, DKIM and DMARC Checker', to: '/tools/email-auth-checker'},
+            ],
           },
           {
             title: 'More',

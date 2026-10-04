@@ -1,0 +1,89 @@
+---
+id: test-m365-relay
+title: Test SMTP relay to Microsoft 365 with PowerShell
+sidebar_label: Test email relay to M365
+description: Check DNS, TCP port 25 and SMTP submission to a Microsoft 365 relay connector using a downloadable PowerShell script.
+slug: /scripts/test-m365-relay
+tags: [scripts, powershell, microsoft-365, exchange, smtp]
+---
+
+import ScriptViewer from '@site/src/components/ScriptViewer';
+import relayScript from '@site/static/scripts/test-m365-relay.ps1';
+
+You've set up an M365 relay connector, but will mail actually get through? This script checks the endpoint and sends one test message, helping you see where the process stops.
+
+## Before you start
+
+Use **Windows PowerShell 5.1** on the Windows machine whose relay path you want to test. You need an existing inbound connector, its exact Microsoft 365 MX endpoint, a sender address in an accepted domain, and a test mailbox you control. Copy the endpoint from the tenant configuration rather than guessing it from the domain name.
+
+For IP-based relay, the machine's outbound public IP must match the connector. Run from the same network path as the application you're diagnosing. Microsoft 365 connector relay uses **TCP port 25**, with STARTTLS enabled in this script. Port 587 with mailbox authentication is a separate submission method. See [Microsoft's SMTP relay setup guide](https://learn.microsoft.com/en-us/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365).
+
+:::note This sends a real email
+Each successful invocation submits one message to the address you supply. It doesn't create or change a connector. SMTP acceptance is one checkpoint; you still need to confirm delivery.
+:::
+
+## Get the script
+
+<ScriptViewer script={relayScript} filename="test-m365-relay.ps1" language="powershell" details="Windows PowerShell 5.1 · SMTP port 25 · Sends one test email" />
+
+## Run an IP-based relay test
+
+Download the file, or copy the code into Notepad and save it as `test-m365-relay.ps1` with **All files** selected. Open Windows PowerShell in that folder.
+
+Replace every example value with your endpoint and addresses:
+
+```powershell
+$relayTest = @{
+    SmtpServer = 'contoso-com.mail.protection.outlook.com'
+    From = 'relay-test@contoso.com'
+    To = 'you@contoso.com'
+}
+.\test-m365-relay.ps1 @relayTest
+```
+
+No mailbox password is requested. This tests connector relay, not authenticated SMTP submission. If execution policy prevents running the file, use your organisation's approved script process.
+
+## Use a certificate-based connector
+
+Supply the full certificate thumbprint as well:
+
+```powershell
+$relayTest.CertificateThumbprint = 'REPLACE_WITH_YOUR_40_CHARACTER_THUMBPRINT'
+.\test-m365-relay.ps1 @relayTest
+```
+
+The script searches **CurrentUser\My** and **LocalMachine\My** for a currently valid certificate with a private key. The running account also needs access to that private key. Its Subject or SAN and connector configuration must meet the tenant's requirements; a local certificate match alone doesn't establish connector acceptance. See [Microsoft's certificate-based connector guidance](https://learn.microsoft.com/en-us/troubleshoot/exchange/email-delivery/office-365-notice).
+
+## Understand the result
+
+| Stage | What to check if it fails |
+| --- | --- |
+| DNS | Confirm the exact endpoint and resolver access. |
+| TCP port 25 | Check routing, firewall and ISP restrictions. A failed TCP connection doesn't establish a connector allow-list problem. |
+| TLS or certificate | Check server trust, endpoint spelling, TLS support and client certificate/private-key access. |
+| SMTP submission | Capture the server error and check the connector identity, public IP, sender domain and mail-flow restrictions. |
+| Accepted, but no message | Inspect message trace, filtering and the recipient mailbox. |
+
+Keep the full error and the test time. Those details make the next check much easier.
+
+## Confirm delivery
+
+Check the recipient inbox and junk folder. In the Exchange admin center, use message trace to find the sender, recipient and test time.
+
+If you already have an authorised Exchange Online PowerShell session, you can query separately with:
+
+```powershell
+Get-MessageTraceV2 -SenderAddress 'relay-test@contoso.com' `
+    -RecipientAddress 'you@contoso.com' `
+    -StartDate (Get-Date).AddMinutes(-30) -EndDate (Get-Date)
+```
+
+Use your real addresses and allow for trace processing time. This query isn't run by the script. See [Microsoft's Get-MessageTraceV2 reference](https://learn.microsoft.com/en-us/powershell/module/exchangepowershell/get-messagetracev2).
+
+Delivering to an internal mailbox alone doesn't prove external relay authorisation. If external relay is your requirement, perform a separate test to an external mailbox you control and confirm that delivery too.
+
+## About this version
+
+This is an updated version of the supplied relay test script. It keeps server certificate validation enabled, requires STARTTLS on port 25, disposes SMTP resources, checks client certificate validity, and points to `Get-MessageTraceV2`. It doesn't include the original certificate-validation bypass or plaintext switch.
+
+It uses .NET `SmtpClient` for this Windows PowerShell diagnostic. Microsoft [doesn't recommend SmtpClient for new application development](https://learn.microsoft.com/en-us/dotnet/api/system.net.mail.smtpclient); this script isn't an OAuth mail client or a production mail-sending service. It has not been tested against a live tenant connector.

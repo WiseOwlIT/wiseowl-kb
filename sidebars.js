@@ -48,7 +48,7 @@ const sidebars = {
       label: 'Scripts',
       collapsed: false,
       link: {type: 'doc', id: 'scripts/scripts'},
-      items: ['scripts/reset-windows-update', 'scripts/get-disk-space-report'],
+      items: ['scripts/reset-windows-update', 'scripts/get-disk-space-report', 'scripts/test-m365-relay'],
     },
     {type: 'link', label: 'Blog', href: '/blog'},
     'about',
