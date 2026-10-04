@@ -40,6 +40,7 @@ const sidebars = {
       collapsed: false,
       items: [
         {type: 'link', label: 'M365 Domain and Tenant Lookup', href: '/tools/m365-lookup'},
+         {type: 'link', label: 'SPF, DKIM and DMARC Checker', href: '/tools/email-auth-checker'},
       ],
     },
     {type: 'link', label: 'Blog', href: '/blog'},

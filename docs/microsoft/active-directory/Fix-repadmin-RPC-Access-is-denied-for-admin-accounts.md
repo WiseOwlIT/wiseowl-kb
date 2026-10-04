@@ -1,7 +1,7 @@
 ---
-id: Fix-repadmin-Access-is-denied-for-a-single-admin-account
-title: Fix repadmin "Access is denied" (error 5) for a single admin account
-sidebar_label: repadmin Access is denied
+id: Fix-repadmin-RPC-Access-is-denied-for-admin-accounts
+title: Fix Repadmin/RPC/RSAT "Access is denied" (error 5) for admin accounts
+sidebar_label: RPC/RSAT Access Denied Errors
 description: One admin gets error 5 from repadmin and dcdiag on every writable domain controller while others are fine. Cause and fix, including RPC filters that block a single account.
 tags: [active-directory, repadmin, dcdiag, rpc, access-denied]
 ---

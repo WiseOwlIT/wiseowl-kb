@@ -81,7 +81,15 @@ const config = {
         },
         items: [
           {type: 'docSidebar', sidebarId: 'kbSidebar', position: 'left', label: 'Knowledge Base'},
-          {to: '/tools/m365-lookup', label: 'M365 Lookup', position: 'left'},
+                       {
+               type: 'dropdown',
+               label: 'Tools',
+               position: 'left',
+               items: [
+                 {to: '/tools/m365-lookup', label: 'M365 Domain and Tenant Lookup'},
+                 {to: '/tools/email-auth-checker', label: 'SPF, DKIM and DMARC Checker'},
+               ],
+             },
           {to: '/blog', label: 'Blog', position: 'left'},
           {to: '/kb/about', label: 'About', position: 'left'},
         ],
