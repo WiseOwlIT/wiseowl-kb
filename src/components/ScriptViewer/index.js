@@ -1,31 +1,31 @@
 import React, {useState} from 'react';
 import CodeBlock from '@theme/CodeBlock';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import script from '@site/static/scripts/reset-windows-update.bat';
+import defaultScript from '@site/static/scripts/reset-windows-update.bat';
 import styles from './styles.module.css';
 
-export default function ScriptViewer() {
+export default function ScriptViewer({script = defaultScript, filename = 'reset-windows-update.bat', language = 'batch', details = 'Windows batch script · Administrator required · Restart afterwards'}) {
   const [status, setStatus] = useState('');
-  const downloadUrl = useBaseUrl('/scripts/reset-windows-update.bat');
+  const downloadUrl = useBaseUrl(`/scripts/${filename}`);
   async function copyCode() {
     try {
       await navigator.clipboard.writeText(script);
-      setStatus('Copied! Paste it into Notepad and save it as reset-windows-update.bat.');
+      setStatus(`Copied! Paste it into your editor and save it as ${filename}.`);
     } catch {
-      setStatus('Copy is unavailable in this browser. Use Download .bat, or select the code below and copy it manually.');
+      setStatus('Copy is unavailable in this browser. Use the download button, or select the code below and copy it manually.');
     }
   }
   return (
-    <section className={styles.viewer} aria-label="Windows Update reset script">
+    <section className={styles.viewer} aria-label={`${filename} script`}>
       <div className={styles.toolbar}>
-        <div><strong>reset-windows-update.bat</strong><div className={styles.meta}>Windows batch script · Administrator required · Restart afterwards</div></div>
+        <div><strong>{filename}</strong><div className={styles.meta}>{details}</div></div>
         <div className={styles.actions}>
           <button type="button" className="button button--primary" onClick={copyCode}>Copy code</button>
-          <a className="button button--secondary" href={downloadUrl} download="reset-windows-update.bat">Download .bat</a>
+          <a className="button button--secondary" href={downloadUrl} download={filename}>Download {filename.slice(filename.lastIndexOf('.'))}</a>
         </div>
       </div>
       <p className={styles.status} role="status" aria-live="polite">{status || 'Read through the script before running it on your PC.'}</p>
-      <CodeBlock language="batch" title="Script preview">{script}</CodeBlock>
+      <CodeBlock language={language} title="Script preview">{script}</CodeBlock>
     </section>
   );
 }

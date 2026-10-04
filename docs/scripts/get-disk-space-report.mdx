@@ -1,0 +1,55 @@
+---
+id: get-disk-space-report
+title: Create a Windows disk-space report with PowerShell
+sidebar_label: Disk-space report
+description: Copy or download a PowerShell script that lists local fixed-drive capacity and free space, with an optional CSV report.
+slug: /scripts/get-disk-space-report
+tags: [scripts, powershell, windows, storage]
+---
+
+import ScriptViewer from '@site/src/components/ScriptViewer';
+import diskScript from '@site/static/scripts/get-disk-space-report.ps1';
+
+Need a quick view of disk space before an update or support call? This script lists the computer's local fixed drives and can save the same information as a CSV.
+
+## What it does
+
+The script queries `Win32_LogicalDisk`, selecting fixed drives (`DriveType=3`). It reports the drive letter, label, capacity, free space and free percentage. Values labelled GiB use a binary conversion; they may differ from another tool's GB display. See Microsoft's [Win32_LogicalDisk reference](https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/win32-logicaldisk).
+
+It reads disk information without changing it. Only the optional `-CsvPath` parameter writes a report file. It doesn't inspect remote computers, network shares, volumes without drive letters or disk hardware health.
+
+## Get the script
+
+**Requirements:** Windows with Windows PowerShell 5.1 or PowerShell 7 and access to local CIM information. No elevation is normally needed for this local query.
+
+<ScriptViewer script={diskScript} filename="get-disk-space-report.ps1" language="powershell" details="PowerShell · Local disk inspection · Optional CSV export" />
+
+## Run it
+
+1. Download the `.ps1` file, or copy the code into Notepad and save it as `get-disk-space-report.ps1` using **All files** as the file type.
+2. Open PowerShell and change to the folder containing the script.
+3. Run it:
+
+```powershell
+.\get-disk-space-report.ps1
+```
+
+To create a new CSV in the current folder:
+
+```powershell
+.\get-disk-space-report.ps1 -CsvPath '.\disk-space-report.csv'
+```
+
+Choose an existing writable folder. The export refuses to overwrite an existing file; use another filename for your next report. See [Microsoft's Export-Csv reference](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/export-csv).
+
+If execution policy blocks the file, use your organisation's approved script process. You can also paste the reviewed code into an interactive PowerShell session where permitted. The script doesn't change execution policy.
+
+## Read the result
+
+Check both **FreeGiB** and **FreePercent** against the workload's requirements. A small percentage on a large drive can still represent substantial space, while an installation may need more than a small drive has available. This report sets no universal “healthy” threshold.
+
+## Verify
+
+Compare a listed drive with its properties in File Explorer. Allow for rounding and changes while applications are running. If you requested CSV output, open the file and check that it contains the same drive letters and columns as the console result.
+
+If the query returns an access or CIM error, investigate that message rather than interpreting it as a full disk. Query behaviour is covered by [Microsoft's Get-CimInstance reference](https://learn.microsoft.com/en-us/powershell/module/cimcmdlets/get-ciminstance).

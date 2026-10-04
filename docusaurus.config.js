@@ -36,7 +36,7 @@ const config = {
       return {
         name: 'script-source',
         configureWebpack() {
-          return {module: {rules: [{test: /\.bat$/i, type: 'asset/source'}]}};
+          return {module: {rules: [{test: /\.(bat|ps1)$/i, type: 'asset/source'}]}};
         },
       };
     },
