@@ -2,3 +2,15 @@ announcement:
   label: Announcement
   permalink: /announcement
   description: Site news and updates
+zero-trust:
+  label: Zero Trust
+  permalink: /zero-trust
+  description: Practical Zero Trust adoption and access security guidance
+cybersecurity:
+  label: Cybersecurity
+  permalink: /cybersecurity
+  description: Security practices for identities, devices and infrastructure
+microsoft-365:
+  label: Microsoft 365
+  permalink: /microsoft-365
+  description: Microsoft 365 administration, security and cloud services
