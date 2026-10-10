@@ -1,0 +1,4 @@
+Contact: mailto:Warwick@wiseowltechnologies.com
+Expires: 2027-04-10T00:00:00Z
+Preferred-Languages: en
+Canonical: https://wiseowltechnologies.com/.well-known/security.txt
