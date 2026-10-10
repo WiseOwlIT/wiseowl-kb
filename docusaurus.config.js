@@ -98,7 +98,8 @@ const config = {
                position: 'left',
                items: [
                  {to: '/tools/m365-lookup', label: 'M365 Domain and Tenant Lookup'},
-                 {to: '/tools/email-auth-checker', label: 'SPF, DKIM and DMARC Checker'},
+                  {to: '/tools/email-auth-checker', label: 'SPF, DKIM and DMARC Checker'},
+                  {to: '/tools/email-header-analyzer', label: 'Email Header Analyzer'},
                ],
              },
           {to: '/kb/scripts', label: 'Scripts', position: 'left'},
@@ -121,7 +122,8 @@ const config = {
             title: 'Tools',
             items: [
               {label: 'M365 Domain and Tenant Lookup', to: '/tools/m365-lookup'},
-              {label: 'SPF, DKIM and DMARC Checker', to: '/tools/email-auth-checker'},
+                {label: 'SPF, DKIM and DMARC Checker', to: '/tools/email-auth-checker'},
+                {label: 'Email Header Analyzer', to: '/tools/email-header-analyzer'},
             ],
           },
           {
